@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="120dp"
         android:id="@+id/hello"/>
 
     <com.google.android.material.navigation.NavigationView

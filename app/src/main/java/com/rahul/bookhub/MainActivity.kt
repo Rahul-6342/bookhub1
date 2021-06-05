@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var toolbar: androidx.appcompat.widget.Toolbar
     lateinit var frameLayout: FrameLayout
     lateinit var navigationView: NavigationView
+    var previousMenuItem:MenuItem?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -35,33 +36,48 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(actiontoggle)
         actiontoggle.syncState()
         navigationView.setNavigationItemSelectedListener {
+            if(previousMenuItem!=null){
+                previousMenuItem?.isChecked=false
+            }
+            it.isCheckable=true
+            it.isChecked=true
+            previousMenuItem=it
             when (it.itemId) {
                 R.id.dash ->
                 {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.framelayout,DashboardFragment())
+                        .addToBackStack("Dashboard")
                         .commit()
+                    supportActionBar?.title="Dashboard"
                     drawerLayout.closeDrawers()
+                    navigationView.setCheckedItem(R.id.dash)
                 }
                 R.id.fav ->
                 {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.framelayout,FavouritesFragment())
+                        .addToBackStack("Favourites")
                         .commit()
+                    supportActionBar?.title="Favourites"
                     drawerLayout.closeDrawers()
                 }
                 R.id.prof ->
                 {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.framelayout,ProfileFragment())
+                        .addToBackStack("Profile")
                         .commit()
+                    supportActionBar?.title="Profile"
                     drawerLayout.closeDrawers()
                 }
                 R.id.about ->
                 {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.framelayout,AboutFragment())
+                        .addToBackStack("About")
                         .commit()
+                    supportActionBar?.title="About App"
                     drawerLayout.closeDrawers()
                 }
 
