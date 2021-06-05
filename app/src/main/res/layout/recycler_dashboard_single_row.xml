@@ -9,6 +9,7 @@
         android:textStyle="bold"
         android:padding="10sp"
         android:layout_margin="10dp"
+        android:id="@+id/txtRecyclerRowItem"
         />
 
 </RelativeLayout>

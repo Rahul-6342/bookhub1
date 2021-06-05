@@ -1,17 +1,19 @@
-package com.rahul.bookhub
+package activity
 
-import android.content.ClipData
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.FrameLayout
-import android.widget.Toast
-import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import fragment.FavouritesFragment
+import fragment.ProfileFragment
+import com.rahul.bookhub.R
+import fragment.AboutFragment
+import fragment.DashboardFragment
 
 class MainActivity : AppCompatActivity() {
     lateinit var drawerLayout: DrawerLayout
@@ -46,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.dash ->
                 {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.framelayout,DashboardFragment())
+                        .replace(R.id.framelayout, DashboardFragment())
                         .addToBackStack("Dashboard")
                         .commit()
                     supportActionBar?.title="Dashboard"
@@ -56,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.fav ->
                 {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.framelayout,FavouritesFragment())
+                        .replace(R.id.framelayout, FavouritesFragment())
                         .addToBackStack("Favourites")
                         .commit()
                     supportActionBar?.title="Favourites"
@@ -65,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.prof ->
                 {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.framelayout,ProfileFragment())
+                        .replace(R.id.framelayout, ProfileFragment())
                         .addToBackStack("Profile")
                         .commit()
                     supportActionBar?.title="Profile"
@@ -74,7 +76,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.about ->
                 {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.framelayout,AboutFragment())
+                        .replace(R.id.framelayout, AboutFragment())
                         .addToBackStack("About")
                         .commit()
                     supportActionBar?.title="About App"

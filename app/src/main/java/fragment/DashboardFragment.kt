@@ -1,4 +1,4 @@
-package com.rahul.bookhub
+package fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.rahul.bookhub.R
 
 class DashboardFragment : Fragment() {
     lateinit var recyclerDashboard:RecyclerView
